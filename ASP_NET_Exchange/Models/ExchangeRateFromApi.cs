@@ -10,7 +10,7 @@ namespace ASP_NET_Exchange
     /// this class allow us to fetch and save data to this fields
     /// ten format jest znany z gory
     /// </summary>
-    class ExchangeRateFromApi
+    public class ExchangeRateFromApi
     {
         public string Disclaimer { set; get; }
         public string License { set; get; }

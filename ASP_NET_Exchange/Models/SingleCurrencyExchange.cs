@@ -43,12 +43,13 @@ namespace ASP_NET_Exchange
         /// <param name="exchangeRate"></param>
         /// <param name="amount"></param>
         /// <param name="result"></param>
-        public SingleCurrencyExchange(int time, string name, double exchangeRate, int amount, double result)
+        public SingleCurrencyExchange(int time, string name, double exchangeRate, int amount)
         {
             this.timeStamp = time;
             this.nameOfCurrency = name;
             this.exchangeRate = exchangeRate;
             this.amountToExchange = amount;
+            double result = exchangeRate * amount;
             this.resultOfCalculating = result;
         }
         public SingleCurrencyExchange()
