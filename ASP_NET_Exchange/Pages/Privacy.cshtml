@@ -1,8 +1,61 @@
 ﻿@page
-@model PrivacyModel
+@model ASP_NET_Exchange.IndexModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Database View";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SingleCurrencyExchange[0].timeStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SingleCurrencyExchange[0].nameOfCurrency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SingleCurrencyExchange[0].exchangeRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SingleCurrencyExchange[0].amountToExchange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SingleCurrencyExchange[0].resultOfCalculating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SingleCurrencyExchange)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.timeStamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameOfCurrency)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.exchangeRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.amountToExchange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.resultOfCalculating)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
